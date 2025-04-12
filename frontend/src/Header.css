@@ -1,0 +1,33 @@
+header {
+    position: fixed;         /* Sticks it to the top */
+    top: 0;                  /* Align to the very top */
+    left: 0;
+    width: 98%;             /* Full width */
+    height: 9%;
+    background-color: #24160f;  /* Dark background */
+    color: white;
+    padding: 1rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;           /* Keeps it above everything else */
+  }
+  
+  header nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+  }
+  
+  header nav ul li a:hover {
+    text-decoration: underline;
+  }
+  
