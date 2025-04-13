@@ -3,11 +3,14 @@ import './Styles/Input.css';
 
 export default function Input() {
   const [credential, setCredential] = useState('');//Handle Credential input
-  const [inputType, setInputType] = useState('username');//Handle input type (username or email)
+  const [inputType, setInputType] = useState('password');//Handle input type (username or email)
 
-  const handleSubmit = (e) => {
-    e.preventDefault();//add missing implementation for calls to api to check breaches
-    // Navigate(/)
+  const handleSubmit = async (e) => {
+    e.prevenDefault();
+    const res = await fetch (`http:localhost:8000/hash?credential=${encodeURIComponent(credential)}`);
+    const hashed = await res.json();
+
+    console.log(hashed);
 
     console.log(`Scanning ${inputType}: ${credential}`);
   };
@@ -20,7 +23,7 @@ export default function Input() {
           type="text"
           id="credential"
           name="credential"
-          placeholder="Enter username or email"
+          placeholder="Enter password or email"
           value={credential}
           onChange={(e) => setCredential(e.target.value)}
           required
@@ -31,11 +34,11 @@ export default function Input() {
             <input
               type="radio"
               name="inputType"
-              value="username"
-              checked={inputType === 'username'}
-              onChange={() => setInputType('username')}
+              value="password"
+              checked={inputType === 'password'}
+              onChange={() => setInputType('password')}
             />
-            Username
+            Password
           </label>
 
           <label>
