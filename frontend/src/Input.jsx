@@ -7,13 +7,21 @@ export default function Input() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http:localhost:8000/breach_directory/ ${encodeURIComponent(credential)}`);
-    const hashed = await res;
-
-    console.log(hashed);
-
+  
+    try {
+      const endpoint =
+        inputType === "password"
+          ? `http://localhost:8000/check/${encodeURIComponent(credential)}`
+          : `http://localhost:8000/breach_directory/${encodeURIComponent(credential)}`;
+  
+      const res = await fetch(endpoint);
+      const result = await res.json();
+      console.log(result);
+    } catch (error) {
+      console.log("Error fetching data: ", error);
+    }
+  
     console.log(`Scanning ${inputType}: ${credential}`);
-    
   };
 
   return (

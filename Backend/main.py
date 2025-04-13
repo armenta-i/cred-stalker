@@ -50,9 +50,13 @@ def check_user_account(user_email: str):
     }
 
     response = requests.get(url, headers=headers, params=querystring)
-    return(response.json())
-    
-
+    if response.status_code == 200:
+        try:
+            return response.json()
+        except Exception:
+            return {"error": "Invalid JSON returned", "details": response.text}
+    else:
+        return {"error": "Request failed", "status_code": response.status_code, "details": response.text}
 
 # @app.get("/hash/{userCredential}")
 # def convert_sha1(userCredential: str):
