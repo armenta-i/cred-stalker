@@ -1,10 +1,13 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
 import requests
 import hashlib
+import os
 
 from fastapi.middleware.cors import CORSMiddleware
 
+load_dotenv()
 app = FastAPI()
 
 app.add_middleware(
@@ -32,6 +35,24 @@ def check_breach(password: str):
             return {"breached": True, "count": int(count)}
 
     return {"breached": False, "count": 0}
+
+@app.get("/breach_directory/{user_email}")
+def check_user_account(user_email: str):
+    # Clean whitespace from email
+    user_email.strip()
+
+    # Call the RapidAPI with the email
+    url = "https://breachdirectory.p.rapidapi.com/"
+    querystring = {"func":"auto", "term":{user_email}}
+    headers = {
+        "x-rapidapi-key": os.getenv('RAPIDAPI_KEY'),
+        "x-rapidapi-host": "breachdirectory.p.rapidapi.com"
+    }
+
+    response = requests.get(url, headers=headers, params=querystring)
+    return(response.json())
+    
+
 
 # @app.get("/hash/{userCredential}")
 # def convert_sha1(userCredential: str):
