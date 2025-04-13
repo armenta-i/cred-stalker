@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './Input.css';
+import './Styles/Input.css';
 
 export default function Input() {
   const [credential, setCredential] = useState('');//Handle Credential input
@@ -7,6 +7,8 @@ export default function Input() {
 
   const handleSubmit = (e) => {
     e.preventDefault();//add missing implementation for calls to api to check breaches
+    // Navigate(/)
+
     console.log(`Scanning ${inputType}: ${credential}`);
   };
 
