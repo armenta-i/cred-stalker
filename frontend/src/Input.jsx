@@ -7,7 +7,7 @@ export default function Input() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await fetch(`http:localhost:8000/breach_directory/  ${encodeURIComponent(credential)}`);
+    const res = await fetch(`http:localhost:8000/breach_directory/ ${encodeURIComponent(credential)}`);
     const hashed = await res;
 
     console.log(hashed);
