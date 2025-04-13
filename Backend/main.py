@@ -39,11 +39,11 @@ def check_breach(password: str):
 @app.get("/breach_directory/{user_email}")
 def check_user_account(user_email: str):
     # Clean whitespace from email
-    user_email.strip()
+    user_email = user_email.strip()
 
     # Call the RapidAPI with the email
     url = "https://breachdirectory.p.rapidapi.com/"
-    querystring = {"func":"auto", "term":{user_email}}
+    querystring = {"func":"auto", "term":user_email}
     headers = {
         "x-rapidapi-key": os.getenv('RAPIDAPI_KEY'),
         "x-rapidapi-host": "breachdirectory.p.rapidapi.com"
