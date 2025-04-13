@@ -30,4 +30,19 @@ header {
   header nav ul li a:hover {
     text-decoration: underline;
   }
+  .button {
+    background-color: #FFD700; /* gold */
+    color: #000; /* black text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button:hover {
+    background-color: #FFC300; /* slightly darker gold on hover */
+  }
+  
   

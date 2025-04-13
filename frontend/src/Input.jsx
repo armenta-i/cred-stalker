@@ -5,14 +5,15 @@ export default function Input() {
   const [credential, setCredential] = useState('');//Handle Credential input
   const [inputType, setInputType] = useState('password');//Handle input type (username or email)
 
-  const handleSubmit = async (e) => {
-    e.prevenDefault();
+  const handleSubmit = async () => {
+    // e.prevenDefault();
     const res = await fetch (`http:localhost:8000/hash?credential=${encodeURIComponent(credential)}`);
     const hashed = await res.json();
 
     console.log(hashed);
 
     console.log(`Scanning ${inputType}: ${credential}`);
+    
   };
 
   return (
