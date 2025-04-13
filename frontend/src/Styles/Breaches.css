@@ -40,10 +40,10 @@
 
 /* Block styling */
 .credential-block {
-  background-color: #3E2723;
+  background-color: #5C3B28;
   padding: 1.25rem;
   border-radius: 10px;
-  border: 1px solid #FFD700;
+  color: #FFD700; /* Gold text */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
   width: 100%;
   max-width: 350px;
@@ -52,4 +52,18 @@
 
 .credential-block p {
   margin: 0.5rem 0;
+}
+.CPDbutton {
+  background-color: #FFD700; /* gold */
+  color: #000; /* black text */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.CPDbutton:hover {
+  background-color: #FFC300; /* slightly darker gold on hover */
 }

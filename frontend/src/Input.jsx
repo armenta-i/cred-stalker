@@ -13,6 +13,7 @@ export default function Input() {
     console.log(hashed);
 
     console.log(`Scanning ${inputType}: ${credential}`);
+    
   };
 
   return (

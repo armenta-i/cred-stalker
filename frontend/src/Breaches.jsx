@@ -59,6 +59,6 @@ function ChangepswdBtn(){
     console.log('Change Password button clicked!');
   }
   return (
-    <button className="change-password-btn">Change Password</button>
+    <button className="CPDbutton">Change Password</button>
   );
 }

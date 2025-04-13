@@ -10,9 +10,9 @@ export default function Header() {
       <h1>CredStalker</h1>
       <nav>
         <ul>
-          <li><button onClick={() => navigate('/')}>Home</button></li>
-          <li><button onClick={() => navigate('/Breaches')}>Breaches</button></li>
-          <li><button onClick={() => navigate('/PswdUtils')}>Pasword Utility</button></li>
+          <li><button className = "button" onClick={() => navigate('/')}>Home</button></li>
+          <li><button className = "button" onClick={() => navigate('/Breaches')}>Breaches</button></li>
+          <li><button className = "button" onClick={() => navigate('/PswdUtils')}>Pasword Utility</button></li>
         </ul>
       </nav>
     </header>
