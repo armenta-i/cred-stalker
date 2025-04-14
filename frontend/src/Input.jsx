@@ -1,26 +1,33 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ⬅️ import this
 import './Styles/Input.css';
 
+
 export default function Input() {
-  const [credential, setCredential] = useState('');//Handle Credential input
-  const [inputType, setInputType] = useState('password');//Handle input type (username or email)
+  const [credential, setCredential] = useState('');
+  const [inputType, setInputType] = useState('password');
+  const navigate = useNavigate(); // ⬅️ initialize it
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       const endpoint =
         inputType === "password"
           ? `http://localhost:8000/check/${encodeURIComponent(credential)}`
           : `http://localhost:8000/breach_directory/${encodeURIComponent(credential)}`;
-  
+
       const res = await fetch(endpoint);
       const result = await res.json();
       console.log(result);
+
+      // ⬇️ navigate to Breaches and pass data
+      navigate('/breaches', { state: result });
+
     } catch (error) {
       console.log("Error fetching data: ", error);
     }
-  
+
     console.log(`Scanning ${inputType}: ${credential}`);
   };
 
