@@ -21,14 +21,16 @@ export default function Input() {
       const result = await res.json();
       console.log(result);
 
-      // ⬇️ navigate to Breaches and pass data
-      navigate('/breaches', { state: result });
+      if (inputType === "password") {
+        // ⬇️ navigate to Breaches and pass data
+        navigate('/pswdutils', { state: result });
+      } else {
+        navigate('/breaches', { state: result});
+      }
 
     } catch (error) {
       console.log("Error fetching data: ", error);
     }
-
-    console.log(`Scanning ${inputType}: ${credential}`);
   };
 
   return (

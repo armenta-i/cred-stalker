@@ -105,7 +105,7 @@ def convert_seconds(estimated_time: float):
     elif estimated_time < 86400:
         return f"{estimated_time/3600}: hours"
     elif estimated_time < 31536000:
-        return f"{estimated_time/864000}: days"
+        return f"{estimated_time/864000:.2f}: days"
     else:
         return f"{estimated_time/31536000} years"
 
