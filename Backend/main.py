@@ -99,15 +99,15 @@ def estimate_crack_time(user_password):
 # Convert the seconds to the respective understandable amount
 def convert_seconds(estimated_time: float):
     if estimated_time < 60: 
-        return f"{estimated_time}: seconds"
+        return f"{estimated_time} seconds"
     elif estimated_time < 3600:
-        return f"{estimated_time/60}: minutes"
+        return f"{estimated_time/60:.4} minutes"
     elif estimated_time < 86400:
-        return f"{estimated_time/3600}: hours"
+        return f"{estimated_time/3600:.4f} hours"
     elif estimated_time < 31536000:
-        return f"{estimated_time/864000:.2f}: days"
+        return f"{estimated_time/864000:.2f} days"
     else:
-        return f"{estimated_time/31536000} years"
+        return f"{estimated_time/31536000:.4f} years"
 
 # Made this method to show the worse case time for finding a password in a dictionary attack,
 # don't know if its working talking about as it has nothing related to password

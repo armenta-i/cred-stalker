@@ -2,19 +2,32 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    }
+}
 
-.pswd-utils {
-    flex: 1; /* take up the rest of the vertical space */
+.pswd-utils h1 {
+    font-size: 2.5rem;
+    color: #FFD700;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    width: 100%;
+}
+
+
+/* Main layout for results */
+.major-results-container {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 2rem;
-}  
+    gap: 3rem;
+    width: 100%;
+    /* max-width: 1200px; */
+    margin-top: 2rem;
+    flex-wrap: wrap; /* responsive stacking on smaller screens */
+}
 
+/* Card component */
 .result-card {
-    margin-top: 1rem;
+    flex: 1;
     padding: 1.5rem 2rem;
     background-color: #f9f9f9;
     border-radius: 12px;
@@ -23,6 +36,7 @@
     width: 100%;
 }
 
+/* Rows inside card */
 .result-item {
     display: flex;
     justify-content: space-between;
@@ -34,11 +48,13 @@
     border-bottom: none;
 }
 
+/* Label styling */
 .label {
     font-weight: 600;
     color: #444;
 }
 
+/* Result status colors */
 .danger {
     color: #e63946;
     font-weight: bold;
@@ -47,4 +63,25 @@
 .safe {
     color: #2a9d8f;
     font-weight: bold;
+}
+
+/* Additional info block */
+.card-results-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    background-color: #3E2A1D;
+    color: #FFD700;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    max-width: 500px;
+    width: 100%;
+}
+
+/* Paragraphs in info block */
+.text-info {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
 }

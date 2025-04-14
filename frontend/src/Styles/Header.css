@@ -3,7 +3,7 @@ header {
     top: 0;                  /* Align to the very top */
     left: 0;
     width: 100%;             /* Full width */
-    height: 9%;
+    /* height: 9%; */
     background-color: #24160f;  /* Dark background */
     color: white;
     padding: 1rem 1rem;
