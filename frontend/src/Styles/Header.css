@@ -1,5 +1,5 @@
 header {
-    position: fixed;         /* Sticks it to the top */
+    position: sticky;         /* Sticks it to the top */
     top: 0;                  /* Align to the very top */
     left: 0;
     width: 98%;             /* Full width */
