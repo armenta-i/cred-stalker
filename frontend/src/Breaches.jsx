@@ -1,64 +1,59 @@
 import './Styles/Breaches.css';
 import Header from './Header';
+import Data from './Data/Data.json'; // Make sure this is an array!
+ 
 export default function Breaches() {
-  
-  const fakeData = [
-    { 
-      site: 'example.com',
-      email: 'user1@example.com',
-      password: '123456' 
-    },
-    { 
-      site: 'coolapp.io',
-      email: 'hacker@coolmail.com', 
-      password: 'p@ssw0rd' 
-    },
-    { 
-      site: 'oldsite.net', 
-      email: 'john@old.net', 
-      password: 'qwerty' 
-    },
-  ];
-
+  console.log("Data", Data);
+  console.log("Data.results", Data.result);
   return (
+    <>
+    <Header />
     <div className="breaches">
       <h1>Compromised Credentials</h1>
       <ul className="breach-list">
-        {fakeData.map((item, index) => (
-          <CredentialItem
-            key={index}
-            site={item.site}
-            email={item.email}
-            password={item.password}
-          />
-        ))}
+      
+      {Array.isArray(Data.result) && Data.result.map((item, index) => (
+        <CredentialItem
+        key={index}
+        email={item.email}
+        password={item.password}
+        sources={item.sources[0]}
+        />
+      )
+    )}
       </ul>
     </div>
-  );
-}
-
-function CredentialItem({ site, email, password }) {
-  return (
-    <>
-    <Header/>
-    <li className="credential-item">
-      <div className="credential-block">
-        <p><strong>Website:</strong> {site}</p>
-        <p><strong>Email:</strong> {email}</p>
-        <p><strong>Password:</strong> {password}</p>
-        <ChangepswdBtn/>
-      </div>
-    </li>
     </>
   );
 }
 
-function ChangepswdBtn(){
-
-  const handleChangePassword = (e) => {
-    console.log('Change Password button clicked!');
-  }
+function CredentialItem({ email, password, sources }) {
+  const showChangeButton = sources && sources.toLowerCase() !== 'unknown';
   return (
-    <button className="CPDbutton">Change Password</button>
+    <li className="credential-item">
+      <div className="credential-block">
+        <p><strong>Email:</strong> {email}</p>
+        <p><strong>Password:</strong> {password}</p>
+        <p><strong>Sources:</strong> {sources}</p>
+        {/* Only show button if source is valid */}
+        {showChangeButton && <ChangepswdBtn source={sources} />}
+      </div>
+    </li>
   );
 }
+
+
+function ChangepswdBtn({ source }) {
+  const handleChangePassword = () => {
+    const url = `https://${source}`;
+    window.open(url, '_blank');
+  };
+
+  return (
+    <button className="CPDbutton" onClick={handleChangePassword}>
+      Change Password
+    </button>
+  );
+}
+
+
