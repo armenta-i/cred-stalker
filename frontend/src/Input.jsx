@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // ⬅️ import this
+import { useNavigate } from 'react-router-dom'; 
 import './Styles/Input.css';
 
 
 export default function Input() {
   const [credential, setCredential] = useState('');
   const [inputType, setInputType] = useState('password');
-  const navigate = useNavigate(); // ⬅️ initialize it
+  const navigate = useNavigate(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
