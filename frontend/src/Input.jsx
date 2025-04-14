@@ -21,7 +21,6 @@ export default function Input() {
       const result = await res.json();
       console.log(result);
 
-      // ⬇️ navigate to Breaches and pass data
       navigate('/breaches', { state: result });
 
     } catch (error) {
