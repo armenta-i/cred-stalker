@@ -45,7 +45,42 @@ export default function PswdUtils() {
                         A dictionary attack is when a hacker uses a pre-made list of common or leaked passwords to guess yours quickly. These lists often come from real-world data breaches.
                         </p>
                     </div>
+            </div>
+            <div className="create-pswd-container">
+                <h1>Create A New Strong Password</h1>
                 
+                <div className="input-pswd-container">
+                <form action="" method="post" className="pswd-form">
+                    <div className="checkbox-group">
+                        <label>
+                            <input type="checkbox" name="option" value="uppercase"/>
+                            Upper Case Chars
+                        </label>
+                        <label>
+                            <input type="checkbox" name="option" value="lowercase"/>
+                            Lower Case Chars
+                            </label>
+                        <label>
+                            <input type="checkbox" name="option" value="digits" />
+                            Digits
+                        </label>
+                        <label>
+                            <input type="checkbox" name="option" value="symbols"/>
+                            Symbols
+                        </label>
+                    </div>
+
+                    <button type="submit" className="button">
+                        Generate Password
+                    </button>
+                </form>
+
+                <div className="result-card">
+                    <h2>Password Result:</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolor nesciunt cumque porro corporis consequuntur. Officia laborum unde provident, voluptatem veniam magnam neque, quas autem odit quasi eos repudiandae dolore deleniti.</p>
+                </div>
+
+                </div>
             </div>
         </div>
 );
