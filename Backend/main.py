@@ -1,9 +1,12 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
+from pydantic import BaseModel
 import requests
 import hashlib
 import os
+import random
+import string
 
 from fastapi.middleware.cors import CORSMiddleware
 
@@ -116,3 +119,32 @@ def estimate_dictionaryatk_crack_time(dictionary_size: int = 1_500_000_000,
     estimated_time = dictionary_size / guesses_per_sec
     return convert_seconds(estimated_time)
 
+class PasswordOptions(BaseModel):
+    upperCase: bool
+    lowerCase: bool
+    digits: bool
+    symbols: bool
+
+# Function to generate the password using parameters requested by user
+@app.post('/generate_password')
+async def generate_password(options: PasswordOptions):
+    chars = ""
+
+    if options.upperCase:
+        chars += string.ascii_uppercase
+    if options.lowerCase:
+        chars += string.ascii_lowercase
+    if options.digits:
+        chars += string.digits
+    if options.symbols:
+        chars += string.punctuation
+
+    if not chars:
+        return {"password" : "no options were selected"}
+    
+    password = ''.join(random.choice(chars) for _ in range(12))
+    result = check_breach(password)
+    if (result['breached'] == False):
+        return {"password" : password}
+    else:
+        generate_password(options)
