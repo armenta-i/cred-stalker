@@ -6,7 +6,7 @@ export default function Breaches() {
   const location = useLocation();
   const Data = location.state;
 
-  console.log("Data", Data);
+  // console.log("Data", Data);
 
   return (
     <>
@@ -45,9 +45,20 @@ function CredentialItem({ email, password, sources }) {
 }
 
 function ChangepswdBtn({ source }) {
-  const handleChangePassword = () => {
-    const url = `https://${source}`;
-    window.open(url, '_blank');
+  const handleChangePassword = async () => {
+    try {
+      const response = await fetch(`http://localhost:8000/search_company_site?company=${encodeURIComponent(source)}&query=change password`);
+      const data = await response.json();
+
+      if (data.link) {
+        window.open(data.link, '_blank');
+      } else {
+        alert('No change password page found for this company.');
+      }
+    } catch (error) {
+      console.error('Error fetching change password page:', error);
+      alert('An error occurred while searching for the change password page.');
+    }
   };
 
   return (

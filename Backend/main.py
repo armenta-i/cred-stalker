@@ -1,4 +1,4 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 import requests
@@ -65,6 +65,46 @@ def check_user_account(user_email: str):
     else:
         return {"error": "Request failed", "status_code": response.status_code, "details": response.text}
 
+#Endpoint for google custom search API
+
+@app.get("/search_company_site")
+def search_company_site(company: str, query: str = "change password"):
+    """
+    Search for a company's specific page using Google Custom Search API.
+    """
+    api_key = os.getenv("GOOGLE_API_KEY")
+    cse_id = os.getenv("GOOGLE_CSE_ID")
+
+    if not api_key or not cse_id:
+        raise HTTPException(status_code=500, detail="Google API credentials are not configured.")
+
+    search_query = f"{company} {query}"
+    url = "https://www.googleapis.com/customsearch/v1"
+    params = {
+        "key": api_key,
+        "cx": cse_id,
+        "q": search_query,
+        "num": 1
+    }
+
+    response = requests.get(url, params=params)
+
+    if response.status_code != 200:
+        raise HTTPException(status_code=response.status_code, detail="Failed to fetch search results.")
+
+    data = response.json()
+    items = data.get("items")
+
+    if not items:
+        return {"message": "No results found."}
+
+    return {
+        "title": items[0].get("title"),
+        "link": items[0].get("link"),
+        "snippet": items[0].get("snippet")
+    }
+    
+    
 def estimate_crack_time(user_password):
     # Total Combinations = (charset size) ^ (password length)
     # Estimated Time = Total Combinations / guesses per second
