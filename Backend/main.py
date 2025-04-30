@@ -164,11 +164,13 @@ class PasswordOptions(BaseModel):
     lowerCase: bool
     digits: bool
     symbols: bool
+    length: str
 
 # Function to generate the password using parameters requested by user
 @app.post('/generate_password')
 async def generate_password(options: PasswordOptions):
     chars = ""
+    passLength = 4 
 
     if options.upperCase:
         chars += string.ascii_uppercase
@@ -178,11 +180,13 @@ async def generate_password(options: PasswordOptions):
         chars += string.digits
     if options.symbols:
         chars += string.punctuation
+    if options.length:
+        passLength = options.length
 
     if not chars:
         return {"password" : "no options were selected"}
     
-    password = ''.join(random.choice(chars) for _ in range(12))
+    password = ''.join(random.choice(chars) for _ in range(int(passLength)))
     result = check_breach(password)
     if (result['breached'] == False):
         return {"password" : password}
