@@ -12,6 +12,7 @@ export default function PswdUtils() {
     const [lowerCase, setLowerCase] = useState(false);
     const [digits, setDigits] = useState(false);
     const [symbols, setSymbols] = useState(false);
+    const [length, setLength] = useState('');
     const [passwordResult, setPasswordResult] = useState('');
 
     // const [submittedOptions, setSubmittedOptions] = useState(null);
@@ -19,14 +20,14 @@ export default function PswdUtils() {
     // Handle the input of the form and display on the page.
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
         const payload = {
             upperCase,
             lowerCase,
             digits,
             symbols,
-            length
+            length,
         };
+        console.log(payload);
 
         try {
             const response = await fetch('http://localhost:8000/generate_password', {
@@ -105,6 +106,10 @@ export default function PswdUtils() {
                         <label>
                             <input type="checkbox" value={symbols} onChange={(e) => setSymbols(e.target.checked)}/>
                             Symbols
+                        </label>
+                        <label>
+                            Password Length
+                            <input type="number" min="4" max="64" value={length} onChange={(e) => setLength(e.target.value)}/>
                         </label>
                     </div>
 
