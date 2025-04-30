@@ -22,7 +22,6 @@ export default function Input() {
       console.log(result);
 
       if (inputType === "password") {
-        // ⬇️ navigate to Breaches and pass data
         navigate('/pswdutils', { state: result });
       } else {
         navigate('/breaches', { state: result});

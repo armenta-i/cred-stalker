@@ -11,9 +11,7 @@ export default function Header() {
       <nav>
         <ul>
           <li><button className = "button" onClick={() => navigate('/')}>Home</button></li>
-          <li><button className = "button" onClick={() => navigate('/Breaches')}>Breaches</button></li>
-          <li><button className = "button" onClick={() => navigate('/PswdUtils')}>Pasword Utility</button></li>
-        </ul>
+          </ul>
       </nav>
     </header>
   );

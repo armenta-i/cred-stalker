@@ -24,7 +24,8 @@ export default function PswdUtils() {
             upperCase,
             lowerCase,
             digits,
-            symbols
+            symbols,
+            length
         };
 
         try {
