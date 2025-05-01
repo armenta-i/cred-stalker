@@ -36,8 +36,8 @@
   .major-results-container {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    gap: var(--spacing-xl);
+    align-items: center;
+    gap: 10em;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto var(--spacing-xl);
@@ -51,6 +51,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-top: 1em;
   }
   
   /* Result card styling with animation */
@@ -130,7 +131,7 @@
     background-color: var(--color-bg-medium);
     color: var(--color-text-primary);
     box-shadow: var(--shadow-md);
-    border-left: 4px solid var(--color-secondary);
+    border-left: 4px solid var(--color-primary);
     animation: slideUp 0.7s ease-out;
     transition: all var(--transition-normal);
   }
@@ -163,6 +164,7 @@
     max-width: 1200px;
     margin: 0 auto;
     animation: fadeIn 1.2s ease-out;
+    padding-top: .5em;
   }
   
   /* Input container layout */
@@ -171,7 +173,7 @@
     justify-content: space-between;
     align-items: flex-start;
     width: 100%;
-    gap: var(--spacing-xl);
+    gap: 3em;
     padding: var(--spacing-md) 0;
     flex-wrap: wrap;
   }
