@@ -1,48 +1,56 @@
 header {
-    position: sticky;         /* Sticks it to the top */
-    top: 0;                  /* Align to the very top */
-    left: 0;
-    width: 100%;             /* Full width */
-    /* height: 9%; */
-    background-color: #24160f;  /* Dark background */
-    color: white;
-    padding: 1rem 1rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    z-index: 1000;           /* Keeps it above everything else */
-  }
-  
-  header nav ul {
-    list-style: none;
-    display: flex;
-    gap: 1rem;
-    margin: 0;
-    padding: 0;
-  }
-  
-  header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-  }
-  
-  header nav ul li a:hover {
-    text-decoration: underline;
-  }
-  .button {
-    background-color: #FFD700; /* gold */
-    color: #000; /* black text */
-    padding: 10px 20px;
-    border: none;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .button:hover {
-    background-color: #FFC300; /* slightly darker gold on hover */
-  }
-  
-  
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #2B2E42; /* Deep slate blue */
+  color: white;
+  padding: 1rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+}
+
+header img {
+  width: 100px;
+  height: auto;
+}
+
+header img:hover {
+  transform: scale(1.05);
+  transition: transform 0.2s ease-in-out;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+header nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+header nav ul li a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  background-color: #3E9AB6; /* Teal accent */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #357f99; /* Slightly darker teal on hover */
+}

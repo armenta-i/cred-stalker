@@ -1,12 +1,14 @@
 import { useNavigate } from 'react-router-dom';
 import './Styles/Header.css';
+// import detective_logo from './assets/detective_png.png';
+import detective_svg from './assets/detective_svg.svg';
 
 export default function Header() {
   const navigate = useNavigate();
 
   return (
     <header>
-      <img src="/CredStalkerLogo.png" alt="Logo" style={{ width: '100px' }} />
+      <img src={detective_svg} alt="Logo" style={{ width: '100px' }} />
       <h1>CredStalker</h1>
       <nav>
         <ul>

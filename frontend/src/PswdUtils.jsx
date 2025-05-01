@@ -109,7 +109,7 @@ export default function PswdUtils() {
                         </label>
                         <label>
                             Password Length
-                            <input type="number" min="4" max="64" value={length} onChange={(e) => setLength(e.target.value)}/>
+                            <input type="number" min="4" max="45" value={length} onChange={(e) => setLength(e.target.value)}/>
                         </label>
                     </div>
 

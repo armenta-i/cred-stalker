@@ -2,16 +2,17 @@
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #363A4F; /* Matches navbar background */
+    color: #FFFFFF;
 }
 
 .pswd-utils h1 {
     font-size: 2.5rem;
-    color: #FFD700;
+    color: #3E9AB6; /* Teal accent */
     margin-bottom: 1.5rem;
     text-align: center;
     width: 100%;
 }
-
 
 /* Main layout for results */
 .major-results-container {
@@ -20,21 +21,20 @@
     align-items: center;
     gap: 3rem;
     width: 100%;
-    /* max-width: 1200px; */
     margin-top: 2rem;
-    flex-wrap: wrap; /* responsive stacking on smaller screens */
+    flex-wrap: wrap;
 }
 
 /* Card component */
 .result-card {
     flex: 1;
     padding: 1.5rem 2rem;
-    background-color: #f9f9f9;
+    background-color: #2B3144; /* Slightly lighter card background */
     border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     max-width: 500px;
     width: 100%;
-    text-wrap: pretty;
+    color: #FFFFFF;
 }
 
 /* Rows inside card */
@@ -42,27 +42,32 @@
     display: flex;
     justify-content: space-between;
     padding: 0.75rem 0;
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid #4C566A;
+    flex-wrap: wrap;
+    word-break: break-word;
+    gap: 0.5rem;
 }
 
-.result-item:last-child {
-    border-bottom: none;
+.result-item span:last-child {
+    flex: 1 1 60%;
+    max-width: 100%;
+    overflow-wrap: anywhere;
 }
 
 /* Label styling */
 .label {
     font-weight: 600;
-    color: #444;
+    color: #BFC9DA;
 }
 
 /* Result status colors */
 .danger {
-    color: #e63946;
+    color: #EF5350;
     font-weight: bold;
 }
 
 .safe {
-    color: #2a9d8f;
+    color: #4DB6AC;
     font-weight: bold;
 }
 
@@ -74,9 +79,9 @@
     justify-content: center;
     padding: 1.5rem 2rem;
     border-radius: 12px;
-    background-color: #3E2A1D;
-    color: #FFD700;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    background-color: #2C354F;
+    color: #FFFFFF;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     max-width: 800px;
     width: 100%;
 }
@@ -87,19 +92,20 @@
     margin-bottom: 1rem;
 }
 
+/* Create password section */
 .create-pswd-container {
     display: flex;
-    flex-direction: column; 
-    /* justify-content: center; */
+    flex-direction: column;
     align-items: center;
     padding-top: 2.3em;
 }
 
+/* Checkbox styles */
 .checkbox-group {
     display: flex;
     flex-direction: column;
-    gap: .5em;
-    padding-bottom: .5em;
+    gap: 0.5em;
+    padding-bottom: 0.5em;
 }
 
 .checkbox-group label {
@@ -108,25 +114,27 @@
     font-weight: bold;
     cursor: pointer;
     gap: 0.5em;
+    color: #FFFFFF;
 }
 
 .checkbox-group input[type="checkbox"] {
-    accent-color: #FFD700;
+    accent-color: #3E9AB6;
     cursor: pointer;
-    
 }
 
+/* Password form styles */
 .pswd-form {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     font-size: larger;
+    color: #FFFFFF;
 }
 
+/* Input section */
 .input-pswd-container {
     display: flex;
     justify-content: space-evenly;
     width: 100%;
     padding: 2em 0em;
 }
-
