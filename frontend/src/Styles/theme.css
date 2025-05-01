@@ -1,0 +1,203 @@
+/* Base theme styling for CredStalker
+   This file defines the primary variables and common styles */
+
+   :root {
+    /* Color palette */
+    --color-primary: #3E9AB6;
+    --color-primary-dark: #297991;
+    --color-primary-light: #5FB6CF;
+    --color-secondary: #F67280;
+    --color-secondary-dark: #D55F6C;
+    
+    /* Background colors */
+    --color-bg-dark: #1E2233;
+    --color-bg-medium: #2B3144;
+    --color-bg-light: #363A4F;
+    
+    /* Text colors */
+    --color-text-primary: #FFFFFF;
+    --color-text-secondary: #BFC9DA;
+    --color-text-muted: #8894A9;
+    
+    /* Status colors */
+    --color-safe: #4DB6AC;
+    --color-danger: #EF5350;
+    --color-warning: #FFCA28;
+    
+    /* Border radius */
+    --border-radius-sm: 4px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 12px;
+    
+    /* Spacing */
+    --spacing-xs: 0.25rem;
+    --spacing-sm: 0.5rem;
+    --spacing-md: 1rem;
+    --spacing-lg: 1.5rem;
+    --spacing-xl: 2rem;
+    --spacing-xxl: 3rem;
+    
+    /* Shadows */
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.15);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.25);
+    --shadow-lg: 0 6px 16px rgba(0, 0, 0, 0.35);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+    
+    /* Font sizes */
+    --font-size-xs: 0.75rem;
+    --font-size-sm: 0.875rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.25rem;
+    --font-size-xl: 1.5rem;
+    --font-size-xxl: 2rem;
+    --font-size-title: 2.5rem;
+  }
+  
+  /* Global resets and common styles */
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  html, body {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-primary);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+    line-height: 1.5;
+    overflow-x: hidden;
+  }
+  
+  h1 {
+    font-size: var(--font-size-title);
+    font-weight: 700;
+    margin-bottom: var(--spacing-lg);
+    color: var(--color-primary);
+  }
+  
+  h2 {
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  button {
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+    border: none;
+    border-radius: var(--border-radius-md);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-normal), transform var(--transition-fast);
+  }
+  
+  button:hover {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  button:active {
+    transform: translateY(0);
+  }
+  
+  input[type="text"],
+  input[type="number"],
+  input[type="email"],
+  input[type="password"] {
+    background-color: var(--color-bg-medium);
+    border: 1px solid var(--color-primary);
+    border-radius: var(--border-radius-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    color: var(--color-text-primary);
+    font-size: var(--font-size-md);
+    width: 100%;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--color-primary-light);
+    box-shadow: 0 0 0 3px rgba(62, 154, 182, 0.2);
+  }
+  
+  /* Common card component */
+  .card {
+    background-color: var(--color-bg-medium);
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-md);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+  }
+  
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  /* Container class */
+  .container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+  
+  /* Status colors */
+  .status-safe {
+    color: var(--color-safe);
+  }
+  
+  .status-danger {
+    color: var(--color-danger);
+  }
+  
+  .status-warning {
+    color: var(--color-warning);
+  }
+  
+  /* Animation classes */
+  .fade-in {
+    animation: fadeIn var(--transition-normal);
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .slide-up {
+    animation: slideUp var(--transition-slow);
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Responsive breakpoints */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 var(--spacing-md);
+    }
+    
+    h1 {
+      font-size: var(--font-size-xl);
+    }
+    
+    h2 {
+      font-size: var(--font-size-lg);
+    }
+  }

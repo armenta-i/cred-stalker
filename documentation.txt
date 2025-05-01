@@ -1,0 +1,177 @@
+Cred-Stalker Documentation
+
+Overview
+Cred-Stalker is a comprehensive security tool designed to help users assess the security of their passwords and email accounts. The application provides multiple features including password breach checking, email breach detection, password strength estimation, and secure password generation.
+
+Tech Stack
+
+Frontend
+- React: A JavaScript library for building user interfaces
+- Vite: Next-generation frontend tooling for fast development
+- ESLint: For code quality and consistency
+- Babel/SWC: For JavaScript compilation and optimization
+
+Backend
+- FastAPI: Modern, fast web framework for building APIs with Python
+- Flask: Web framework for Python (used for additional functionality)
+- Uvicorn: ASGI server for running FastAPI applications
+- Python-dotenv: For managing environment variables
+- Requests: For making HTTP requests
+- Httpx: Async HTTP client
+- Authlib: For OAuth and OpenID Connect support
+
+API Integration
+
+1. Have I Been Pwned (HIBP) API
+- Purpose: Checks if a password has been compromised in data breaches
+- Implementation: 
+  - Uses SHA-1 hashing for secure password checking
+  - Implements k-anonymity to protect user privacy
+  - Returns breach status and count of occurrences
+
+2. BreachDirectory API (via RapidAPI)
+- Purpose: Checks if an email address has been involved in data breaches
+- Features:
+  - Comprehensive breach database search
+  - Detailed breach information retrieval
+  - Secure API key implementation
+
+3. Google Custom Search API
+- Purpose: Helps users find password change pages for specific companies
+- Features:
+  - Custom search implementation
+  - Company-specific password change page discovery
+  - Secure API key management
+
+Core Features
+
+1. Password Security Check
+- Functionality:
+  - Checks password against known breach databases
+  - Estimates password crack time
+  - Provides dictionary attack vulnerability assessment
+- Security Measures:
+  - Implements secure hashing
+  - Uses k-anonymity for privacy
+  - Never stores or logs passwords
+
+2. Email Breach Detection
+- Functionality:
+  - Checks email against multiple breach databases
+  - Provides detailed breach information
+  - Returns comprehensive breach history
+- Security Measures:
+  - Secure API key implementation
+  - Rate limiting
+  - Error handling
+
+3. Password Generation
+- Features:
+  - Customizable password generation
+  - Multiple character set options
+  - Length configuration
+  - Automatic breach checking
+- Security Features:
+  - Cryptographically secure random generation
+  - Breach checking before returning password
+  - Configurable complexity requirements
+
+4. Password Strength Estimation
+- Features:
+  - Brute force attack time estimation
+  - Dictionary attack vulnerability assessment
+  - Character set analysis
+  - Time-based complexity calculation
+
+Security Considerations
+
+1. API Security:
+   - All API keys are stored in environment variables
+   - Secure HTTPS connections
+   - Rate limiting implementation
+   - Error handling and logging
+
+2. Password Security:
+   - Never stores passwords
+   - Uses secure hashing
+   - Implements k-anonymity
+   - Secure password generation
+
+3. User Privacy:
+   - Minimal data collection
+   - Secure data transmission
+   - No persistent storage of sensitive information
+
+API Endpoints
+
+Password Check
+- Endpoint: /check/{password}
+- Method: GET
+- Response: 
+  {
+    "breached": boolean,
+    "count": number,
+    "Brute force estimated crack time": string,
+    "Worst Case Dict Atk": string
+  }
+
+Email Breach Check
+- Endpoint: /breach_directory/{user_email}
+- Method: GET
+- Response: Breach information in JSON format
+
+Company Password Change Page Search
+- Endpoint: /search_company_site
+- Method: GET
+- Parameters: 
+  - company: string
+  - query: string (optional, default: "change password")
+- Response: Search results in JSON format
+
+Password Generation
+- Endpoint: /generate_password
+- Method: POST
+- Request Body:
+  {
+    "upperCase": boolean,
+    "lowerCase": boolean,
+    "digits": boolean,
+    "symbols": boolean,
+    "length": string
+  }
+- Response: Generated password in JSON format
+
+Best Practices
+
+1. Password Management:
+   - Use generated passwords only once
+   - Store passwords in a secure password manager
+   - Enable two-factor authentication where available
+
+2. Security Monitoring:
+   - Regularly check email addresses for breaches
+   - Monitor password strength
+   - Update passwords after breaches
+
+3. API Usage:
+   - Implement rate limiting
+   - Monitor API usage
+   - Handle errors gracefully
+   - Secure API keys
+
+Future Enhancements
+
+1. Planned Features:
+   - Two-factor authentication support
+   - Password manager integration
+   - Automated breach notifications
+   - Enhanced password strength analysis
+
+2. Security Improvements:
+   - Additional API integrations
+   - Enhanced encryption
+   - Improved rate limiting
+   - Advanced error handling
+
+Support and Maintenance
+For issues, feature requests, or security concerns, please contact the development team. Regular updates and security patches will be provided to ensure the tool remains secure and effective. 
